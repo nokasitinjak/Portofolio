@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+/* BACKGROUND DEEP PURPLE PURPLE PREMIUM – SUDAH DI-FIX */
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #0f0919 0%, #1a0d2e 45%, #2d1b4e 100%) !important;
+  color: #e0e7ff;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Glass Card – lebih glowing di background ungu */
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 24px;
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+  transition: all 0.4s ease;
+}
+
+.glass:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(139, 92, 246, 0.25);
+}
+
+/* Gradient Text – lebih match */
+.gradient-text {
+  background: linear-gradient(90deg, #a78bfa, #c084fc, #e0a5ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+}
+
+/* Button – aku bikin ungu supaya lebih nyatu & mewah */
+.btn {
+  padding: 16px 36px;
+  background: linear-gradient(135deg, #5b21b6, #8b5cf6);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s;
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.5);
+}
+
+.btn:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(139, 92, 246, 0.7);
+  background: linear-gradient(135deg, #7c3aed, #a78bfa);
+}
+
+/* 3 Kolom Project – Responsive */
+#projects > .container > div:nth-child(2) {
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+
+@media (max-width: 1280px) {
+  #projects > .container > div:nth-child(2) {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #projects > .container > div:nth-child(2) {
+    grid-template-columns: 1fr !important;
+  }
+}
+:root[data-theme='light'] {
+  --bg-glass: rgba(0,0,0,0.05);
+  --text-title: #111;
+  --text-sub: #444;
+  --card-border: rgba(139,92,246,0.25);
+}
+
+:root[data-theme='dark'] {
+  --bg-glass: rgba(255,255,255,0.04);
+  --text-title: white;
+  --text-sub: #94a3b8;
+  --card-border: rgba(139,92,246,0.4);
+}
+.nav-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  color: inherit;
+  transition: 0.25s;
+}
+
+.nav-btn:hover {
+  color: #60a5fa;
+  transform: translateY(-2px);
+}
+/* === PROFILE IMAGE (ABOUT ME) === */
+.profile-photo {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%; /* bikin bulat */
+  object-fit: cover; /* biar tidak melebar/distorsi */
+  border: 4px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 35px rgba(139, 92, 246, 0.4);
+  transition: 0.4s;
+}
+
+/* efek hover aesthetic */
+.profile-photo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 48px rgba(167, 139, 250, 0.6);
+}
