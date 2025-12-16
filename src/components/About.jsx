@@ -29,79 +29,51 @@ const About = () => {
 
   return (
     <>
-      {/* ABOUT ME – FULLY RESPONSIVE */}
-      <section id="about" style={{ padding: '120px 0', minHeight: '100vh', display: 'flex', alignItems: 'center' }}>
-        <div className="container">
-          <motion.h2
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="gradient-text"
-            style={{ fontSize: 'clamp(2.8rem, 8vw, 4.5rem)', textAlign: 'center', marginBottom: '60px', fontWeight: '800' }}
-          >
-            About Me
-          </motion.h2>
+   {/* ABOUT ME SECTION – HANYA TEKS SAJA */}
+<section id="about" style={{ padding: '120px 0', minHeight: '100vh', display: 'flex', alignItems: 'center' }}>
+  <div className="container">
+    <motion.h2
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="gradient-text"
+      style={{ fontSize: 'clamp(2.8rem, 8vw, 4.5rem)', textAlign: 'center', marginBottom: '60px', fontWeight: '800' }}
+    >
+      About Me
+    </motion.h2>
 
-          <motion.div
-            initial={{ opacity: 0, y: 100 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.2, delay: 0.2 }}
-            className="glass"
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-              gap: 'clamp(30px, 5vw, 80px)',
-              padding: 'clamp(30px, 5vw, 60px)',
-              borderRadius: '30px',
-              textAlign: 'center'
-            }}
-          >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-            >
-              <img
-                src={myPhoto}
-                alt="Nokatri Sitinjak"
-                style={{
-                  width: 'clamp(200px, 40vw, 360px)',
-                  height: 'clamp(200px, 40vw, 360px)',
-                  borderRadius: '50%',
-                  objectFit: 'cover',
-                  border: '6px solid #60a5fa',
-                  boxShadow: '0 20px 50px rgba(96,165,250,0.4)',
-                  margin: '0 auto'
-                }}
-              />
-            </motion.div>
+    <motion.div
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 1.2, delay: 0.2 }}
+      className="glass"
+      style={{
+        padding: 'clamp(40px, 6vw, 80px)',
+        borderRadius: '30px',
+        textAlign: 'center',
+        maxWidth: '900px',
+        margin: '0 auto',
+      }}
+    >
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+        <p style={{ fontSize: 'clamp(1.1rem, 3vw, 1.3rem)', lineHeight: '1.9', maxWidth: '800px', margin: '0 auto' }}>
+          Hello! I'm <strong>Nokatri Sitinjak</strong>, an Information Technology student with a strong interest in <strong>Quality Assurance</strong>, <strong>UI/UX Design</strong>, and <strong>Business Analysis</strong>.
+        </p>
+        
+        <p style={{ fontSize: 'clamp(1rem, 2.8vw, 1.15rem)', lineHeight: '1.85', maxWidth: '800px', margin: '0 auto' }}>
+          I believe the best applications not only work without bugs but also deliver a comfortable, intuitive, and enjoyable user experience.
+        </p>
+        
+        <p style={{ fontSize: 'clamp(1rem, 2.8vw, 1.15rem)', lineHeight: '1.85', maxWidth: '800px', margin: '0 auto' }}>
+          I love learning new things and am not afraid to face different challenges, whether working independently or as part of a team.
+        </p>
+      </div>
+    </motion.div>
+  </div>
+</section>
 
-            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-              <p style={{ fontSize: 'clamp(1.1rem, 3vw, 1.3rem)', lineHeight: '1.9', marginBottom: '24px' }}>
-                Halo! Saya <strong>Nokatri Sitinjak</strong>, seorang mahasiswa Teknologi Informasi dengan fokus pada <strong>Quality Assurance</strong>, <strong>UI/UX Design</strong> dan <strong>Business Analyst</strong>.
-              </p>
-              <p style={{ fontSize: 'clamp(1rem, 2.8vw, 1.15rem)', marginBottom: '24px', lineHeight: '1.85' }}>
-                Saya percaya aplikasi terbaik bukan hanya bekerja tanpa bug, tapi juga memberikan pengalaman penggunaan yang nyaman, intuitif, dan menyenangkan.
-              </p>
-              <p style={{ fontSize: 'clamp(1rem, 2.8vw, 1.15rem)', marginBottom: '40px', lineHeight: '1.85' }}>
-                Saya suka belajar hal baru dan tidak ragu menghadapi tantangan berbeda, baik saat bekerja sendiri maupun dalam tim.
-              </p>
-
-              <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', justifyContent: 'center' }}>
-                <button onClick={scrollToContact} className="btn" style={{ padding: '16px 36px', fontSize: '1.1rem', fontWeight: '700', borderRadius: '16px' }}>
-                  Contact Me
-                </button>
-                <a href="/CVNokatri.pdf" download className="btn btn-outline" style={{ padding: '16px 36px', fontSize: '1.1rem', fontWeight: '700', borderRadius: '16px' }}>
-                  Download CV
-                </a>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* EDUCATION – 100% RESPONSIF */}
+      {/* EDUCATION SECTION */}
       <section id="education" style={{ padding: '120px 0' }}>
         <div className="container">
           <motion.h2
@@ -114,7 +86,7 @@ const About = () => {
             Education
           </motion.h2>
 
-          {/* IT DEL */}
+          {/* IT Del */}
           <motion.div
             initial={{ opacity: 0, x: -80 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -185,18 +157,34 @@ const About = () => {
         </div>
       </section>
 
-      {/* SERTIFIKAT – RESPONSIF */}
+      {/* CERTIFICATES SECTION */}
       <section id="certificates" style={{ padding: '120px 0' }}>
         <div className="container">
-          <motion.h2 initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="gradient-text" style={{ fontSize: 'clamp(2.6rem, 7vw, 3.8rem)', textAlign: 'center', marginBottom: '70px' }}>
-            Sertifikat & Penghargaan
+          <motion.h2
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="gradient-text"
+            style={{ fontSize: 'clamp(2.6rem, 7vw, 3.8rem)', textAlign: 'center', marginBottom: '70px' }}
+          >
+            Certificates & Awards
           </motion.h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px' }}>
             {certificates.map((c, i) => (
-              <motion.a key={i} href={c.pdf} target="_blank" rel="noopener noreferrer" initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
-                <div className="glass" style={{ borderRadius: '24px', overflow: 'hidden' }}>
+              <motion.a
+                key={i}
+                href={c.pdf}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                <div className="glass" style={{ borderRadius: '24px', overflow: 'hidden', height: '100%', display: 'flex', flexDirection: 'column' }}>
                   <img src={c.thumb} alt={c.title} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
-                  <div style={{ padding: '24px' }}>
+                  <div style={{ padding: '24px', flexGrow: 1 }}>
                     <h3 style={{ fontSize: '1.25rem', color: '#e0e7ff', fontWeight: '600', marginBottom: '8px' }}>{c.title}</h3>
                     <p style={{ color: '#94a3b8', fontSize: '1rem' }}>{c.issuer} • {c.date}</p>
                   </div>
@@ -207,24 +195,51 @@ const About = () => {
         </div>
       </section>
 
-      {/* PROJECTS – RESPONSIF */}
+      {/* PROJECTS SECTION */}
       <section id="projects" style={{ padding: '120px 0' }}>
         <div className="container">
-          <motion.h2 initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="gradient-text" style={{ fontSize: 'clamp(2.8rem, 7vw, 4rem)', textAlign: 'center', marginBottom: '80px' }}>
-            Project
+          <motion.h2
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="gradient-text"
+            style={{ fontSize: 'clamp(2.8rem, 7vw, 4rem)', textAlign: 'center', marginBottom: '80px' }}
+          >
+            Projects
           </motion.h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '40px' }}>
             {projects.map((p, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 80 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="glass" style={{ borderRadius: '28px', overflow: 'hidden' }}
-                onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-16px)'} onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}>
-                <img src={p.img} alt={p.title} style={{ width: '100%', height: '220px', objectFit: 'cover' }} onError={e => e.target.src = "https://via.placeholder.com/600x400/1e293b/e0e7ff?text=Project"} />
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 80 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="glass"
+                style={{ borderRadius: '28px', overflow: 'hidden', transition: 'transform 0.3s ease' }}
+                whileHover={{ y: -16 }}
+              >
+                <img
+                  src={p.img}
+                  alt={p.title}
+                  style={{ width: '100%', height: '220px', objectFit: 'cover' }}
+                  onError={(e) => e.target.src = "https://via.placeholder.com/600x400/1e293b/e0e7ff?text=Project"}
+                />
                 <div style={{ padding: '28px' }}>
                   <h3 style={{ fontSize: '1.5rem', color: '#60a5fa', fontWeight: '800', marginBottom: '12px' }}>{p.title}</h3>
                   <p style={{ color: '#cbd5e1', fontSize: '1rem', lineHeight: '1.6', marginBottom: '16px' }}>{p.desc}</p>
                   <p style={{ color: '#94a3b8', fontSize: '0.95rem', marginBottom: '20px', fontWeight: '600' }}>{p.tech}</p>
                   <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                    {p.github && <a href={p.github} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'rgba(255,255,255,0.1)', padding: '10px 20px', borderRadius: '12px', color: 'white', fontSize: '0.95rem' }}><Github size={18} />Source Code</a>}
-                    {p.figma && <a href={p.figma} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'rgba(236,72,153,0.15)', padding: '10px 20px', borderRadius: '12px', color: '#ec4899', fontSize: '0.95rem' }}><ExternalLink size={18} />Lihat di Figma</a>}
+                    {p.github && (
+                      <a href={p.github} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'rgba(255,255,255,0.1)', padding: '10px 20px', borderRadius: '12px', color: 'white', fontSize: '0.95rem' }}>
+                        <Github size={18} /> Source Code
+                      </a>
+                    )}
+                    {p.figma && (
+                      <a href={p.figma} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'rgba(236,72,153,0.15)', padding: '10px 20px', borderRadius: '12px', color: '#ec4899', fontSize: '0.95rem' }}>
+                        <ExternalLink size={18} /> View on Figma
+                      </a>
+                    )}
                   </div>
                 </div>
               </motion.div>
