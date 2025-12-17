@@ -57,7 +57,7 @@ const About = () => {
             >
               <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', textAlign: 'center' }}>
                 <p style={{ fontSize: 'clamp(1.2rem, 3.5vw, 1.5rem)', lineHeight: '1.9', color: '#e0e7ff' }}>
-                  Hello! I'm <strong>Nokatri Sitinjak</strong>, an Information Technology student with a strong interest in <strong>Quality Assurance</strong>, <strong>UI/UX Design</strong>, and <strong>Business Analysis</strong>.
+                  Hello! I'm <strong>Nokatri Sitinjak</strong>, an Information Technology student with a strong interest in <strong>Quality Assurance</strong>, <strong>UI/UX Design</strong>, <strong>Front End</strong> and <strong>Business Analysis</strong>.
                 </p>
                 <p style={{ fontSize: 'clamp(1.1rem, 3vw, 1.3rem)', lineHeight: '1.9', color: '#cbd5e1' }}>
                   I believe the best applications not only work without bugs but also deliver a comfortable, intuitive, and enjoyable user experience.
