@@ -107,48 +107,48 @@ const Contact = () => {
         </div>
 
         {/* TOOLS & TECHNOLOGIES */}
-        <div style={{ marginBottom: '140px' }}>
-          <p style={{ color: '#94a3b8', marginBottom: '60px', fontSize: '1.8rem', fontWeight: '700' }}>
-            Tools & Technologies
-          </p>
+<div id="Tools" style={{ marginBottom: '140px' }}>
+  <p style={{ color: '#94a3b8', marginBottom: '60px', fontSize: '1.8rem', fontWeight: '700' }}>
+    Tools & Technologies
+  </p>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
-            gap: '40px',
-            maxWidth: '1000px',
-            margin: '0 auto'
-          }}>
-            {tools.map((tool, i) => (
-              <div
-                key={i}
-                style={{ transition: 'all 0.5s ease' }}
-                onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-16px)'}
-                onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
-              >
-                <div style={{
-                  width: '80px',
-                  height: '80px',
-                  margin: '0 auto 20px',
-                  background: 'rgba(255,255,255,0.07)',
-                  borderRadius: '24px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  padding: '12px',
-                  backdropFilter: 'blur(12px)',
-                  border: '1px solid rgba(139,92,246,0.25)',
-                  boxShadow: '0 15px 40px rgba(0,0,0,0.4)'
-                }}>
-                  <img src={tool.img} alt={tool.name} style={{ maxWidth: '60%', maxHeight: '60%', objectFit: 'contain' }} />
-                </div>
-                <p style={{ color: '#e0e7ff', fontSize: '1.3rem', fontWeight: '600' }}>
-                  {tool.name}
-                </p>
-              </div>
-            ))}
-          </div>
+  <div style={{
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
+    gap: '40px',
+    maxWidth: '1000px',
+    margin: '0 auto'
+  }}>
+    {tools.map((tool, i) => (
+      <div
+        key={i}
+        style={{ transition: 'all 0.5s ease' }}
+        onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-16px)'}
+        onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
+      >
+        <div style={{
+          width: '80px',
+          height: '80px',
+          margin: '0 auto 20px',
+          background: 'rgba(255,255,255,0.07)',
+          borderRadius: '24px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '12px',
+          backdropFilter: 'blur(12px)',
+          border: '1px solid rgba(139,92,246,0.25)',
+          boxShadow: '0 15px 40px rgba(0,0,0,0.4)'
+        }}>
+          <img src={tool.img} alt={tool.name} style={{ maxWidth: '60%', maxHeight: '60%', objectFit: 'contain' }} />
         </div>
+        <p style={{ color: '#e0e7ff', fontSize: '1.3rem', fontWeight: '600' }}>
+          {tool.name}
+        </p>
+      </div>
+    ))}
+  </div>
+</div>
 
         {/* COPYRIGHT */}
         <p style={{ color: '#64748b', fontSize: '1.3rem', fontWeight: '500' }}>
