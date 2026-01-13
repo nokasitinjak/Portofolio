@@ -1,7 +1,15 @@
-import React from 'react';
-import { Mail, Linkedin, Github, Instagram, MessageCircle } from 'lucide-react';
+import React, { useState } from 'react';
+import { Mail, Linkedin, Github, Instagram, MessageCircle, Copy } from 'lucide-react';
 
 const Contact = () => {
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText('nokatrisitinjak@gmail.com');
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   const tools = [
     { name: "Figma", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" },
     { name: "Canva", img: "/canva.jpg" },
@@ -18,144 +26,251 @@ const Contact = () => {
   ];
 
   return (
-    <footer id="contact" style={{
-      padding: '180px 0 100px',
-      background: '#1c0430ff ', 
-      borderTop: '1px solid rgba(139,92,246,0.15)'
-    }}>
-      <div className="container" style={{ textAlign: 'center' }}>
+    <footer
+      id="contact"
+      style={{
+        padding: '160px 24px 100px',
+        background: 'linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%)',
+        position: 'relative',
+        overflow: 'hidden',
+        borderTop: '1px solid rgba(96,165,250,0.25)',
+      }}
+    >
+      {/* Background orbs subtle */}
+      <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
+        <div style={{ position: 'absolute', top: '10%', left: '12%', width: '450px', height: '450px', background: 'radial-gradient(circle, rgba(96,165,250,0.12) 0%, transparent 60%)', borderRadius: '50%' }} />
+        <div style={{ position: 'absolute', bottom: '15%', right: '12%', width: '550px', height: '550px', background: 'radial-gradient(circle, rgba(236,72,153,0.10) 0%, transparent 70%)', borderRadius: '50%' }} />
+      </div>
 
+      <div style={{ maxWidth: '1400px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
         {/* JUDUL */}
-        <h2 className="gradient-text" style={{
-          fontSize: '4.2rem',
-          marginBottom: '80px',
-          fontWeight: '800'
-        }}>
+        <h2
+          style={{
+            fontSize: 'clamp(3.5rem, 9vw, 6rem)',
+            fontWeight: '900',
+            textAlign: 'center',
+            marginBottom: '60px',
+            background: 'linear-gradient(90deg, #60a5fa, #c084fc, #ec4899, #fb923c)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+          }}
+        >
           Let's Connect!
         </h2>
 
-        <p style={{ color: '#cbd5e1', fontSize: '1.5rem', marginBottom: '60px', lineHeight: '1.7' }}>
-          Need a Front-End Developer, QA, UI/UX Designer, or Business Analyst? <br />
-          <strong>Let’s connect and build something great together.</strong>
+        <p
+          style={{
+            color: '#cbd5e1',
+            fontSize: 'clamp(1.3rem, 4vw, 1.6rem)',
+            textAlign: 'center',
+            marginBottom: '70px',
+            lineHeight: '1.7',
+            maxWidth: '780px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          Looking for a Quality Assurance Engineer, UI/UX Designer, Front-End Developer, or Business Analyst?  
+          <br />
+          <strong>Let's collaborate and create something exceptional together.</strong>
         </p>
 
-        {/* SOSIAL MEDIA — DIPINDAHKAN KE SINI, DI ATAS TOMBOL EMAIL/WA */}
+        {/* Social Media Icons */}
         <div style={{ marginBottom: '100px' }}>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '50px', flexWrap: 'wrap' }}>
-            <a href="https://linkedin.com/in/nokatri-sitinjak-b2032a288" target="_blank" rel="noopener noreferrer"
-              style={{ padding: '24px', background: 'rgba(10,102,194,0.18)', borderRadius: '50px', transition: '0.5s' }}
-              onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-16px) scale(1.15)'}
-              onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0) scale(1)'}>
-              <Linkedin size={50} color="#0a66c2" />
-            </a>
-
-            <a href="https://github.com/nokasitinjak" target="_blank" rel="noopener noreferrer"
-              style={{ padding: '24px', background: 'rgba(255,255,255,0.12)', borderRadius: '50px', transition: '0.5s' }}
-              onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-16px) scale(1.15)'}
-              onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0) scale(1)'}>
-              <Github size={50} color="#fff" />
-            </a>
-
-            <a href="https://instagram.com/trii_.sitinjak" target="_blank" rel="noopener noreferrer"
-              style={{ padding: '24px', background: 'rgba(236,72,153,0.18)', borderRadius: '50px', transition: '0.5s' }}
-              onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-16px) scale(1.15)'}
-              onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0) scale(1)'}>
-              <Instagram size={50} color="#ec4899" />
-            </a>
+            {[
+              { href: "https://linkedin.com/in/nokatri-sitinjak-b2032a288", icon: Linkedin, color: "#60a5fa", label: "LinkedIn" },
+              { href: "https://github.com/nokasitinjak", icon: Github, color: "#ffffff", label: "GitHub" },
+              { href: "https://instagram.com/trii_.sitinjak", icon: Instagram, color: "#ec4899", label: "Instagram" },
+            ].map((social, i) => (
+              <a
+                key={i}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={social.label}
+                style={{
+                  padding: '24px',
+                  background: 'rgba(30,27,75,0.5)',
+                  borderRadius: '50%',
+                  border: `1px solid rgba(${social.color === "#60a5fa" ? "96,165,250" : social.color === "#ffffff" ? "255,255,255" : "236,72,153"}, 0.35)`,
+                  backdropFilter: 'blur(10px)',
+                  transition: 'all 0.4s ease',
+                  boxShadow: '0 8px 25px rgba(0,0,0,0.3)',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.transform = 'translateY(-12px) scale(1.12)';
+                  e.currentTarget.style.boxShadow = `0 16px 40px rgba(${social.color === "#60a5fa" ? "96,165,250" : social.color === "#ffffff" ? "255,255,255" : "236,72,153"}, 0.4)`;
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                  e.currentTarget.style.boxShadow = '0 8px 25px rgba(0,0,0,0.3)';
+                }}
+              >
+                <social.icon size={44} color={social.color} />
+              </a>
+            ))}
           </div>
         </div>
 
-        {/* TOMBOL EMAIL & WA */}
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '40px', flexWrap: 'wrap', marginBottom: '140px' }}>
-          <a href="mailto:nokatrisitinjak@gmail.com"
+        {/* Contact Buttons */}
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '40px', flexWrap: 'wrap', marginBottom: '120px' }}>
+          <button
+            onClick={copyEmail}
             style={{
-              display: 'flex', alignItems: 'center', gap: '16px',
-              padding: '20px 40px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '16px',
+              padding: '20px 48px',
               background: 'linear-gradient(135deg, #60a5fa, #3b82f6)',
-              borderRadius: '50px',
+              borderRadius: '999px',
               color: 'white',
-              fontSize: '1.4rem',
+              fontSize: '1.35rem',
               fontWeight: '700',
-              boxShadow: '0 20px 50px rgba(96,165,250,0.4)',
-              transition: 'all 0.5s',
-              textDecoration: 'none'
+              boxShadow: '0 15px 40px rgba(96,165,250,0.4)',
+              border: 'none',
+              cursor: 'pointer',
+              transition: 'all 0.4s ease',
+              position: 'relative',
+              overflow: 'hidden',
             }}
-            onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-12px) scale(1.08)'}
-            onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0) scale(1)'}>
-            <Mail size={36} />
-            Kirim Email
-          </a>
+            onMouseEnter={e => {
+              e.currentTarget.style.transform = 'translateY(-10px) scale(1.05)';
+              e.currentTarget.style.boxShadow = '0 25px 60px rgba(96,165,250,0.6)';
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.transform = 'translateY(0) scale(1)';
+              e.currentTarget.style.boxShadow = '0 15px 40px rgba(96,165,250,0.4)';
+            }}
+          >
+            <Mail size={32} />
+            {copied ? 'Email Copied!' : 'Copy Email'}
+            {copied && <div style={{ position: 'absolute', inset: 0, background: 'rgba(255,255,255,0.2)', animation: 'ripple 0.8s ease-out' }} />}
+          </button>
 
-          <a href="https://wa.me/6285370532722" target="_blank" rel="noopener noreferrer"
+          <a
+            href="https://wa.me/6285370532722"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
-              display: 'flex', alignItems: 'center', gap: '16px',
-              padding: '20px 40px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '16px',
+              padding: '20px 48px',
               background: 'linear-gradient(135deg, #25d366, #128c7e)',
-              borderRadius: '50px',
+              borderRadius: '999px',
               color: 'white',
-              fontSize: '1.4rem',
+              fontSize: '1.35rem',
               fontWeight: '700',
-              boxShadow: '0 20px 50px rgba(37,211,102,0.4)',
-              transition: 'all 0.5s',
-              textDecoration: 'none'
+              boxShadow: '0 15px 40px rgba(37,211,102,0.4)',
+              textDecoration: 'none',
+              transition: 'all 0.4s ease',
             }}
-            onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-12px) scale(1.08)'}
-            onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0) scale(1)'}>
-            <MessageCircle size={36} />
+            onMouseEnter={e => {
+              e.currentTarget.style.transform = 'translateY(-10px) scale(1.05)';
+              e.currentTarget.style.boxShadow = '0 25px 60px rgba(37,211,102,0.6)';
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.transform = 'translateY(0) scale(1)';
+              e.currentTarget.style.boxShadow = '0 15px 40px rgba(37,211,102,0.4)';
+            }}
+          >
+            <MessageCircle size={32} />
             Chat WhatsApp
           </a>
         </div>
 
-        {/* TOOLS & TECHNOLOGIES */}
-<div id="Tools" style={{ marginBottom: '140px' }}>
-  <p style={{ color: '#94a3b8', marginBottom: '60px', fontSize: '1.8rem', fontWeight: '700' }}>
-    Tools & Technologies
-  </p>
+        {/* Tools Section */}
+        <div style={{ marginBottom: '140px' }}>
+          <h3
+            style={{
+              textAlign: 'center',
+              color: '#93c5fd',
+              fontSize: 'clamp(2.2rem, 5.5vw, 3rem)',
+              fontWeight: '700',
+              marginBottom: '60px',
+            }}
+          >
+            Tools & Technologies
+          </h3>
 
-  <div style={{
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
-    gap: '40px',
-    maxWidth: '1000px',
-    margin: '0 auto'
-  }}>
-    {tools.map((tool, i) => (
-      <div
-        key={i}
-        style={{ transition: 'all 0.5s ease' }}
-        onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-16px)'}
-        onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
-      >
-        <div style={{
-          width: '80px',
-          height: '80px',
-          margin: '0 auto 20px',
-          background: 'rgba(255,255,255,0.07)',
-          borderRadius: '24px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: '12px',
-          backdropFilter: 'blur(12px)',
-          border: '1px solid rgba(139,92,246,0.25)',
-          boxShadow: '0 15px 40px rgba(0,0,0,0.4)'
-        }}>
-          <img src={tool.img} alt={tool.name} style={{ maxWidth: '60%', maxHeight: '60%', objectFit: 'contain' }} />
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
+              gap: '40px 30px',
+              maxWidth: '1200px',
+              margin: '0 auto',
+            }}
+          >
+            {tools.map((tool, i) => (
+              <div
+                key={i}
+                style={{
+                  textAlign: 'center',
+                  transition: 'all 0.4s ease',
+                }}
+                onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-12px)'}
+                onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
+              >
+                <div
+                  style={{
+                    width: '90px',
+                    height: '90px',
+                    margin: '0 auto 16px',
+                    background: 'rgba(30,27,75,0.55)',
+                    borderRadius: '24px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: '14px',
+                    backdropFilter: 'blur(12px)',
+                    border: '1px solid rgba(96,165,250,0.3)',
+                    boxShadow: '0 12px 35px rgba(0,0,0,0.35)',
+                  }}
+                >
+                  <img
+                    src={tool.img}
+                    alt={tool.name}
+                    style={{
+                      maxWidth: '100%',
+                      maxHeight: '100%',
+                      objectFit: 'contain',
+                      filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.3))',
+                    }}
+                    onError={e => {
+                      e.target.src = "https://via.placeholder.com/80?text=" + tool.name;
+                    }}
+                  />
+                </div>
+                <p style={{ color: '#e0e7ff', fontSize: '1.15rem', fontWeight: '600' }}>
+                  {tool.name}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
-        <p style={{ color: '#e0e7ff', fontSize: '1.3rem', fontWeight: '600' }}>
-          {tool.name}
+
+        {/* Copyright */}
+        <p
+          style={{
+            textAlign: 'center',
+            color: '#64748b',
+            fontSize: '1.25rem',
+            fontWeight: '500',
+          }}
+        >
+          © {new Date().getFullYear()} Nokatri Sitinjak • Built with React & Passion
         </p>
       </div>
-    ))}
-  </div>
-</div>
 
-        {/* COPYRIGHT */}
-        <p style={{ color: '#64748b', fontSize: '1.3rem', fontWeight: '500' }}>
-          © 2025 Nokatri Sitinjak • Built with React & Passion
-        </p>
-
-      </div>
+      {/* Ripple animation untuk copy feedback */}
+      <style jsx global>{`
+        @keyframes ripple {
+          0% { transform: scale(0); opacity: 0.8; }
+          100% { transform: scale(4); opacity: 0; }
+        }
+      `}</style>
     </footer>
   );
 };

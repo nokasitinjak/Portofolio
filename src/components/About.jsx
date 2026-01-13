@@ -21,228 +21,603 @@ const projects = [
   { title: "Website Apotik Nauli Farma", desc: "Berperan sebagai UI/UX Designer dengan fokus pada penyusunan alur pengguna, wireframe, dan desain antarmuka yang user-friendly untuk memudahkan pengunjung mencari informasi obat dan layanan kesehatan.", tech: "Figma • HTML/CSS • JavaScript • Manual Testing", github: "https://github.com/kristiansitinjak/Final-Project-1-Nauli-Farma", img: "/project5.jpg" },
 ];
 
+const hardSkills = [
+  { name: "UI/UX Design & Prototyping", icon: "🎨" },
+  { name: "Quality Assurance (Manual + Automation)", icon: "🧪" },
+  { name: "Front-End Development (ReactJS, JS, HTML/CSS)", icon: "💻" },
+  { name: "Katalon & Selenium", icon: "🔍" },
+  { name: "SQL / MySQL", icon: "🗄️" },
+  { name: "Figma & Canva", icon: "✏️" },
+  { name: "Git & Version Control", icon: "🔄" },
+  { name: "Bootstrap & Responsive Design", icon: "📱" },
+];
+
+const softSkills = [
+  { name: "Problem Solving", icon: "🧠" },
+  { name: "Attention to Detail", icon: "🔎" },
+  { name: "Team Collaboration", icon: "🤝" },
+  { name: "Fast Learner & Adaptability", icon: "🚀" },
+  { name: "Effective Communication", icon: "💬" },
+  { name: "Time Management", icon: "⏰" },
+  { name: "User-Centered Thinking", icon: "👥" },
+];
+
 const About = () => {
   return (
-    <>
-      {/* BACKGROUND SELURUH HALAMAN = DEEP PURPLE SOLID #2d1b69 */}
-      <div style={{ background: '#291148ff', minHeight: '100vh' }}>
+    <div style={{
+      background: 'linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%)',
+      minHeight: '100vh',
+      color: '#e0e7ff',
+      position: 'relative',
+      overflow: 'hidden',
+    }}>
+      {/* Background orbs */}
+      <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
+        <div style={{ position: 'absolute', top: '10%', left: '15%', width: '450px', height: '450px', background: 'radial-gradient(circle, rgba(96,165,250,0.12) 0%, transparent 60%)', borderRadius: '50%' }} />
+        <div style={{ position: 'absolute', bottom: '20%', right: '10%', width: '550px', height: '550px', background: 'radial-gradient(circle, rgba(236,72,153,0.10) 0%, transparent 70%)', borderRadius: '50%' }} />
+      </div>
 
-        {/* ABOUT ME SECTION - SEKARANG ADA CARD GLASS BESAR */}
-        <section id="about" style={{ padding: '120px 0' }}>
-          <div className="container">
-            <motion.h2
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="gradient-text"
-              style={{ fontSize: 'clamp(2.8rem, 8vw, 4.5rem)', textAlign: 'center', marginBottom: '80px', fontWeight: '800' }}
-            >
-              About Me
-            </motion.h2>
+      {/* ABOUT ME */}
+      <section id="about" style={{ padding: '140px 24px 80px' }}>
+        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+          <motion.h2
+            initial={{ opacity: 0, y: 80 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            style={{
+              fontSize: 'clamp(4rem, 10vw, 7rem)',
+              fontWeight: '900',
+              textAlign: 'center',
+              marginBottom: '60px',
+              background: 'linear-gradient(90deg, #60a5fa, #c084fc, #ec4899, #fb923c)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              letterSpacing: '-2px',
+            }}
+          >
+            About Me
+          </motion.h2>
 
-            <motion.div
-              initial={{ opacity: 0, y: 80 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="glass"
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.9 }}
+            style={{
+              padding: '60px 48px',
+              borderRadius: '40px',
+              backdropFilter: 'blur(24px)',
+              background: 'rgba(30,27,75,0.55)',
+              border: '1px solid rgba(96,165,250,0.3)',
+              boxShadow: '0 30px 90px rgba(0,0,0,0.6)',
+              maxWidth: '920px',
+              margin: '0 auto',
+              textAlign: 'center',
+              position: 'relative',
+              overflow: 'hidden',
+            }}
+          >
+            <div
               style={{
-                padding: '50px',
-                borderRadius: '32px',
-                maxWidth: '1000px',
-                margin: '0 auto',
-                boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
-                backdropFilter: 'blur(20px)',
-                border: '1px solid rgba(255,255,255,0.1)',
+                position: 'absolute',
+                inset: '-50%',
+                background: 'linear-gradient(45deg, transparent, rgba(96,165,250,0.08), transparent)',
+                transform: 'rotate(45deg)',
+                animation: 'shine 14s infinite linear',
+                pointerEvents: 'none',
               }}
+            />
+
+            <p style={{ fontSize: 'clamp(1.4rem, 4.5vw, 1.8rem)', lineHeight: '1.9', marginBottom: '32px', color: '#e0e7ff', fontWeight: '500' }}>
+              Hello! I'm <strong>Nokatri Sitinjak</strong>, an IT student obsessed with creating digital experiences that are <strong>flawless</strong>, <strong>beautiful</strong>, and genuinely <strong>user-friendly</strong>.
+            </p>
+
+            <p style={{ fontSize: 'clamp(1.2rem, 3.5vw, 1.45rem)', lineHeight: '1.8', color: '#cbd5e1', marginBottom: '32px' }}>
+              I live at the crossroads of <strong>Quality Assurance</strong>, <strong>UI/UX Design</strong>, <strong>Front-End Development</strong>, and <strong>Business Analysis</strong>. My mission: build products that don't just work — they <strong>delight</strong> and <strong>perform</strong> perfectly.
+            </p>
+
+            <p style={{ fontSize: 'clamp(1.2rem, 3.5vw, 1.45rem)', lineHeight: '1.8', color: '#cbd5e1' }}>
+              Curious by nature, I embrace challenges, learn fast, and love collaborating (or going solo) to turn ideas into polished, impactful solutions.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* STATS CARDS */}
+      <section style={{ padding: '60px 24px 80px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '30px',
+              textAlign: 'center',
+            }}
+          >
+            {[
+              { number: "5+", label: "Featured Projects", color: "#60a5fa" },
+              { number: "10+", label: "Skills", color: "#c084fc" },
+              { number: "2+", label: "Years", sublabel: "Real Experience", color: "#fb923c" },
+            ].map((stat, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.15, duration: 0.7 }}
+                whileHover={{ scale: 1.05, y: -10 }}
+                style={{
+                  padding: '40px 24px',
+                  borderRadius: '24px',
+                  background: 'rgba(30,27,75,0.55)',
+                  backdropFilter: 'blur(16px)',
+                  border: '1px solid rgba(96,165,250,0.25)',
+                  boxShadow: '0 15px 50px rgba(0,0,0,0.5)',
+                  transition: 'all 0.4s ease',
+                }}
+              >
+                <div
+                  style={{
+                    fontSize: 'clamp(3.5rem, 8vw, 5.5rem)',
+                    fontWeight: '900',
+                    background: `linear-gradient(90deg, ${stat.color}, #ec4899)`,
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    marginBottom: '12px',
+                  }}
+                >
+                  {stat.number}
+                </div>
+                <p style={{ fontSize: '1.4rem', fontWeight: '700', color: '#e0e7ff', marginBottom: '8px' }}>
+                  {stat.label}
+                </p>
+                {stat.sublabel && (
+                  <p style={{ fontSize: '1.1rem', color: '#93c5fd' }}>
+                    {stat.sublabel}
+                  </p>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* HARD SKILLS & SOFT SKILLS */}
+      <section style={{ padding: '80px 24px 100px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '50px' }}>
+            {/* HARD SKILLS */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
             >
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', textAlign: 'center' }}>
-                <p style={{ fontSize: 'clamp(1.2rem, 3.5vw, 1.5rem)', lineHeight: '1.9', color: '#e0e7ff' }}>
-                  Hello! I'm <strong>Nokatri Sitinjak</strong>, an Information Technology student with a strong interest in <strong>Quality Assurance</strong>, <strong>UI/UX Design</strong>, <strong>Front End</strong> and <strong>Business Analysis</strong>.
-                </p>
-                <p style={{ fontSize: 'clamp(1.1rem, 3vw, 1.3rem)', lineHeight: '1.9', color: '#cbd5e1' }}>
-                  I believe the best applications not only work without bugs but also deliver a comfortable, intuitive, and enjoyable user experience.
-                </p>
-                <p style={{ fontSize: 'clamp(1.1rem, 3vw, 1.3rem)', lineHeight: '1.9', color: '#cbd5e1' }}>
-                  I love learning new things and am not afraid to face different challenges, whether working independently or as part of a team.
-                </p>
+              <h3 style={{
+                fontSize: 'clamp(2.2rem, 5vw, 3rem)',
+                fontWeight: '800',
+                textAlign: 'center',
+                marginBottom: '40px',
+                background: 'linear-gradient(90deg, #60a5fa, #c084fc)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}>
+                Hard Skills
+              </h3>
+
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+                gap: '20px',
+              }}>
+                {hardSkills.map((skill, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.08 }}
+                    whileHover={{ scale: 1.05, y: -8 }}
+                    style={{
+                      padding: '20px 16px',
+                      borderRadius: '16px',
+                      background: 'rgba(30,27,75,0.5)',
+                      backdropFilter: 'blur(12px)',
+                      border: '1px solid rgba(96,165,250,0.25)',
+                      boxShadow: '0 10px 30px rgba(0,0,0,0.4)',
+                      textAlign: 'center',
+                      transition: 'all 0.3s ease',
+                    }}
+                  >
+                    <div style={{ fontSize: '2.2rem', marginBottom: '12px' }}>{skill.icon}</div>
+                    <p style={{ fontSize: '1.15rem', fontWeight: '600', color: '#e0e7ff' }}>
+                      {skill.name}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* SOFT SKILLS */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <h3 style={{
+                fontSize: 'clamp(2.2rem, 5vw, 3rem)',
+                fontWeight: '800',
+                textAlign: 'center',
+                marginBottom: '40px',
+                background: 'linear-gradient(90deg, #ec4899, #fb923c)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}>
+                Soft Skills
+              </h3>
+
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+                gap: '20px',
+              }}>
+                {softSkills.map((skill, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.08 }}
+                    whileHover={{ scale: 1.05, y: -8 }}
+                    style={{
+                      padding: '20px 16px',
+                      borderRadius: '16px',
+                      background: 'rgba(30,27,75,0.5)',
+                      backdropFilter: 'blur(12px)',
+                      border: '1px solid rgba(236,72,153,0.25)',
+                      boxShadow: '0 10px 30px rgba(0,0,0,0.4)',
+                      textAlign: 'center',
+                      transition: 'all 0.3s ease',
+                    }}
+                  >
+                    <div style={{ fontSize: '2.2rem', marginBottom: '12px' }}>{skill.icon}</div>
+                    <p style={{ fontSize: '1.15rem', fontWeight: '600', color: '#e0e7ff' }}>
+                      {skill.name}
+                    </p>
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* EDUCATION SECTION - ADA CARD GLASS BESAR */}
-        <section id="education" style={{ padding: '80px 0' }}>
-          <div className="container">
-            <motion.h2
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+      {/* EDUCATION */}
+      <section id="education" style={{ padding: '80px 24px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <motion.h2
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            style={{
+              fontSize: 'clamp(2.8rem, 8vw, 4.5rem)',
+              textAlign: 'center',
+              marginBottom: '80px',
+              fontWeight: '900',
+              background: 'linear-gradient(90deg, #60a5fa, #c084fc, #ec4899)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}
+          >
+            Education
+          </motion.h2>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(480px, 1fr))', gap: '40px' }}>
+            {/* IT Del Card */}
+            <motion.div
+              initial={{ opacity: 0, x: -60 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="gradient-text"
-              style={{ fontSize: 'clamp(2.6rem, 7vw, 3.8rem)', textAlign: 'center', marginBottom: '80px' }}
+              whileHover={{ scale: 1.04, boxShadow: '0 35px 90px rgba(96,165,250,0.4)' }}
+              style={{
+                padding: '40px',
+                borderRadius: '32px',
+                backdropFilter: 'blur(20px)',
+                background: 'rgba(30,27,75,0.5)',
+                border: '1px solid rgba(96,165,250,0.35)',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '24px',
+              }}
             >
-              Education
-            </motion.h2>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '60px', maxWidth: '1000px', margin: '0 auto' }}>
-              {/* CARD IT Del */}
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="glass"
-                style={{ padding: '40px', borderRadius: '32px', boxShadow: '0 20px 60px rgba(0,0,0,0.5)' }}
-              >
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '40px', alignItems: 'center' }}>
-                  <img src="/logo del.jpg" alt="IT Del" style={{ width: '140px', height: '140px', objectFit: 'contain', borderRadius: '20px' }} />
-                  <div style={{ flex: 1 }}>
-                    <h3 style={{ fontSize: '2.2rem', fontWeight: '800', color: 'white', marginBottom: '12px' }}>Institut Teknologi Del</h3>
-                    <p style={{ color: '#94a3b8', fontSize: '1.3rem', marginBottom: '20px' }}>Laguboti, Toba, Sumatera Utara</p>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', marginBottom: '24px' }}>
-                      <span style={{ background: 'rgba(139,92,246,0.3)', padding: '10px 20px', borderRadius: '16px', color: '#e0e7ff', fontWeight: '600' }}>
-                        Diploma III — Teknologi Informasi
-                      </span>
-                      <span style={{ background: 'linear-gradient(90deg,#8b5cf6,#c084fc)', padding: '10px 20px', borderRadius: '50px', color: 'white', fontWeight: '600' }}>
-                        2023 – 2026
-                      </span>
-                    </div>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
-                      <div style={{ background: 'rgba(96,165,250,0.15)', padding: '16px 20px', borderRadius: '16px' }}>
-                        <div style={{ fontSize: '1.3rem', fontWeight: '700', color: '#60a5fa' }}>UI/UX Design</div>
-                        <span style={{ fontSize: '1.1rem', color: '#a5b4fc' }}>Design & User Research</span>
-                      </div>
-                      <div style={{ background: 'rgba(139,92,246,0.15)', padding: '16px 20px', borderRadius: '16px' }}>
-                        <div style={{ fontSize: '1.3rem', fontWeight: '700', color: '#c084fc' }}>Quality Assurance</div>
-                        <span style={{ fontSize: '1.1rem', color: '#e0c0ff' }}>Manual & Automation Testing</span>
-                      </div>
-                    </div>
-                  </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '32px', flexWrap: 'wrap' }}>
+                <img src="/logo del.jpg" alt="IT Del" style={{ width: '120px', height: '120px', borderRadius: '24px', objectFit: 'contain' }} />
+                <div>
+                  <h3 style={{ fontSize: '2.2rem', fontWeight: '900', marginBottom: '8px' }}>Institut Teknologi Del</h3>
+                  <p style={{ color: '#94a3b8', fontSize: '1.25rem' }}>Laguboti, Toba, Sumatera Utara</p>
                 </div>
-              </motion.div>
-
-              {/* CARD SMA */}
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                className="glass"
-                style={{ padding: '40px', borderRadius: '32px', boxShadow: '0 20px 60px rgba(0,0,0,0.5)' }}
-              >
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '40px', alignItems: 'center' }}>
-                  <img src="/sma 1 laguboti.jpg" alt="SMA" style={{ width: '140px', height: '140px', objectFit: 'contain', borderRadius: '20px' }} />
-                  <div style={{ flex: 1 }}>
-                    <h3 style={{ fontSize: '2.2rem', fontWeight: '800', color: 'white', marginBottom: '12px' }}>SMA Negeri 1 Laguboti</h3>
-                    <p style={{ color: '#94a3b8', fontSize: '1.3rem', marginBottom: '20px' }}>Toba, Sumatera Utara • Jurusan IPA</p>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                      <span style={{ background: 'linear-gradient(90deg,#60a5fa,#3b82f6)', padding: '12px 24px', borderRadius: '50px', color: 'white', fontWeight: '600', alignSelf: 'flex-start' }}>
-                        2019 – 2022
-                      </span>
-                      <div style={{ background: 'rgba(139,92,246,0.2)', padding: '20px 28px', borderRadius: '20px', border: '1px solid rgba(139,92,246,0.5)', alignSelf: 'flex-start' }}>
-                        <p style={{ color: '#e0aaff', fontWeight: '800', fontSize: '1.4rem', margin: 0 }}>Sekretaris OSIS</p>
-                        <p style={{ color: '#c084fc', fontSize: '1.1rem', margin: '8px 0 0' }}>2020 – 2022 • 2 tahun berturut-turut</p>
-                      </div>
-                    </div>
-                  </div>
+              </div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
+                <span style={{ padding: '12px 24px', background: 'rgba(96,165,250,0.2)', borderRadius: '999px', fontWeight: '600', color: '#60a5fa' }}>
+                  D-III Teknologi Informasi
+                </span>
+                <span style={{ padding: '12px 24px', background: 'linear-gradient(90deg, #60a5fa, #3b82f6)', borderRadius: '999px', color: 'white', fontWeight: '700' }}>
+                  2023 – 2026
+                </span>
+              </div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
+                <div style={{ padding: '16px 20px', background: 'rgba(96,165,250,0.2)', borderRadius: '16px', minWidth: '180px' }}>
+                  <div style={{ fontWeight: '700', color: '#60a5fa' }}>UI/UX Design</div>
+                  <div style={{ color: '#93c5fd' }}>Design & User Research</div>
                 </div>
-              </motion.div>
-            </div>
+                <div style={{ padding: '16px 20px', background: 'rgba(139,92,246,0.2)', borderRadius: '16px', minWidth: '180px' }}>
+                  <div style={{ fontWeight: '700', color: '#c084fc' }}>Quality Assurance</div>
+                  <div style={{ color: '#e0c0ff' }}>Manual & Automation Testing</div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* SMA Card */}
+            <motion.div
+              initial={{ opacity: 0, x: 60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.04, boxShadow: '0 35px 90px rgba(236,72,153,0.4)' }}
+              style={{
+                padding: '40px',
+                borderRadius: '32px',
+                backdropFilter: 'blur(20px)',
+                background: 'rgba(30,27,75,0.5)',
+                border: '1px solid rgba(96,165,250,0.35)',
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '32px', flexWrap: 'wrap', marginBottom: '24px' }}>
+                <img src="/sma 1 laguboti.jpg" alt="SMA" style={{ width: '120px', height: '120px', borderRadius: '24px', objectFit: 'contain' }} />
+                <div>
+                  <h3 style={{ fontSize: '2.2rem', fontWeight: '900', marginBottom: '8px' }}>SMA Negeri 1 Laguboti</h3>
+                  <p style={{ color: '#94a3b8', fontSize: '1.25rem' }}>Toba, Sumatera Utara • Jurusan IPA</p>
+                </div>
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                <span style={{ padding: '12px 28px', background: 'linear-gradient(90deg, #60a5fa, #3b82f6)', borderRadius: '999px', color: 'white', fontWeight: '700', alignSelf: 'flex-start' }}>
+                  2019 – 2022
+                </span>
+                <div style={{ padding: '20px 28px', background: 'rgba(139,92,246,0.25)', borderRadius: '20px', border: '1px solid rgba(139,92,246,0.4)', alignSelf: 'flex-start' }}>
+                  <p style={{ fontWeight: '800', fontSize: '1.45rem', margin: 0, color: '#e0aaff' }}>Sekretaris OSIS</p>
+                  <p style={{ color: '#c084fc', margin: '8px 0 0' }}>2020 – 2022 • 2 tahun berturut-turut</p>
+                </div>
+              </div>
+            </motion.div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* CERTIFICATES SECTION - CARD TETAP ADA */}
-        <section id="certificates" style={{ padding: '80px 0' }}>
-          <div className="container">
-            <motion.h2
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="gradient-text"
-              style={{ fontSize: 'clamp(2.6rem, 7vw, 3.8rem)', textAlign: 'center', marginBottom: '60px' }}
-            >
-              Certificates & Awards
-            </motion.h2>
+      {/* CERTIFICATES */}
+      <section id="certificates" style={{ padding: '100px 24px' }}>
+        <div style={{ maxWidth: '1300px', margin: '0 auto' }}>
+          <motion.h2
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            style={{
+              fontSize: 'clamp(2.8rem, 8vw, 4.5rem)',
+              textAlign: 'center',
+              marginBottom: '80px',
+              fontWeight: '900',
+              background: 'linear-gradient(90deg, #60a5fa, #c084fc, #ec4899)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}
+          >
+            Certificates & Awards
+          </motion.h2>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px', maxWidth: '1200px', margin: '0 auto' }}>
-              {certificates.map((c, i) => (
-                <motion.a
-                  key={i}
-                  href={c.pdf}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08 }}
-                  whileHover={{ scale: 1.05, y: -10 }}
-                  className="glass"
-                  style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 15px 40px rgba(0,0,0,0.5)' }}
-                >
-                  <img src={c.thumb} alt={c.title} style={{ width: '100%', height: '190px', objectFit: 'cover' }} />
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '32px' }}>
+            {certificates.map((cert, i) => (
+              <motion.a
+                key={i}
+                href={cert.pdf}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.07 }}
+                whileHover={{ scale: 1.07, y: -14 }}
+                style={{ position: 'relative', borderRadius: '24px', overflow: 'hidden', display: 'block' }}
+              >
+                <div style={{
+                  borderRadius: '24px',
+                  overflow: 'hidden',
+                  boxShadow: '0 15px 50px rgba(0,0,0,0.5)',
+                  background: 'rgba(30,27,75,0.55)',
+                  backdropFilter: 'blur(16px)',
+                  border: '1px solid rgba(96,165,250,0.3)',
+                }}>
+                  <div style={{ position: 'relative' }}>
+                    <img
+                      src={cert.thumb}
+                      alt={cert.title}
+                      style={{ width: '100%', height: '220px', objectFit: 'cover', transition: 'transform 0.5s ease' }}
+                    />
+                    <div style={{
+                      position: 'absolute',
+                      inset: 0,
+                      background: 'linear-gradient(to top, rgba(30,27,75,0.8), transparent)',
+                      opacity: 0,
+                      transition: 'opacity 0.5s',
+                    }}
+                      className="overlay"
+                    />
+                  </div>
                   <div style={{ padding: '24px' }}>
-                    <h3 style={{ fontSize: '1.3rem', color: '#e0e7ff', fontWeight: '600', marginBottom: '8px' }}>{c.title}</h3>
-                    <p style={{ color: '#94a3b8', fontSize: '1rem' }}>{c.issuer} • {c.date}</p>
+                    <h3 style={{ fontSize: '1.4rem', fontWeight: '700', marginBottom: '8px', color: '#e0e7ff' }}>{cert.title}</h3>
+                    <p style={{ color: '#93c5fd', fontSize: '1rem' }}>{cert.issuer} • {cert.date}</p>
                   </div>
-                </motion.a>
-              ))}
-            </div>
+                </div>
+                <style jsx>{`
+                  div:hover .overlay { opacity: 1; }
+                  div:hover img { transform: scale(1.1); }
+                `}</style>
+              </motion.a>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* PROJECTS SECTION - CARD TETAP ADA */}
-        <section id="projects" style={{ padding: '80px 0 120px' }}>
-          <div className="container">
-            <motion.h2
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="gradient-text"
-              style={{ fontSize: 'clamp(2.6rem, 7vw, 3.8rem)', textAlign: 'center', marginBottom: '60px' }}
-            >
-              Projects
-            </motion.h2>
+      {/* PROJECTS */}
+      <section id="projects" style={{ padding: '100px 24px 140px' }}>
+        <div style={{ maxWidth: '1300px', margin: '0 auto' }}>
+          <motion.h2
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            style={{
+              fontSize: 'clamp(2.8rem, 8vw, 4.5rem)',
+              textAlign: 'center',
+              marginBottom: '80px',
+              fontWeight: '900',
+              background: 'linear-gradient(90deg, #60a5fa, #c084fc, #ec4899)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}
+          >
+            Projects
+          </motion.h2>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '36px', maxWidth: '1200px', margin: '0 auto' }}>
-              {projects.map((p, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 60 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="glass"
-                  style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.5)' }}
-                  whileHover={{ y: -12 }}
-                >
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '40px' }}>
+            {projects.map((proj, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 70 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                whileHover={{ y: -18, boxShadow: '0 45px 110px rgba(96,165,250,0.4)' }}
+                style={{
+                  borderRadius: '28px',
+                  overflow: 'hidden',
+                  background: 'rgba(30,27,75,0.55)',
+                  backdropFilter: 'blur(20px)',
+                  border: '1px solid rgba(96,165,250,0.3)',
+                }}
+              >
+                <div style={{ position: 'relative', overflow: 'hidden' }}>
                   <img
-                    src={p.img}
-                    alt={p.title}
-                    style={{ width: '100%', height: '220px', objectFit: 'cover' }}
-                    onError={(e) => e.target.src = "https://via.placeholder.com/600x400/1e293b/e0e7ff?text=Project"}
+                    src={proj.img}
+                    alt={proj.title}
+                    style={{ width: '100%', height: '240px', objectFit: 'cover', transition: 'transform 0.6s ease' }}
+                    onError={e => e.target.src = "https://via.placeholder.com/600x400/1e293b/e0e7ff?text=Project"}
                   />
-                  <div style={{ padding: '28px' }}>
-                    <h3 style={{ fontSize: '1.5rem', color: '#60a5fa', fontWeight: '800', marginBottom: '12px' }}>{p.title}</h3>
-                    <p style={{ color: '#cbd5e1', fontSize: '1.05rem', lineHeight: '1.6', marginBottom: '14px' }}>{p.desc}</p>
-                    <p style={{ color: '#94a3b8', fontSize: '0.95rem', marginBottom: '20px', fontWeight: '600' }}>{p.tech}</p>
-                    <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
-                      {p.github && (
-                        <a href={p.github} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '10px', background: 'rgba(255,255,255,0.12)', padding: '10px 18px', borderRadius: '14px', color: 'white', fontSize: '0.95rem' }}>
-                          <Github size={18} /> Source Code
-                        </a>
-                      )}
-                      {p.figma && (
-                        <a href={p.figma} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '10px', background: 'rgba(236,72,153,0.2)', padding: '10px 18px', borderRadius: '14px', color: '#ec4899', fontSize: '0.95rem' }}>
-                          <ExternalLink size={18} /> View on Figma
-                        </a>
-                      )}
-                    </div>
+                  <div style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: 'linear-gradient(to bottom, transparent, rgba(30,27,75,0.85))',
+                    opacity: 0,
+                    transition: 'opacity 0.5s',
+                  }}
+                    className="proj-overlay"
+                  />
+                </div>
+
+                <div style={{ padding: '32px' }}>
+                  <h3 style={{
+                    fontSize: '1.65rem',
+                    fontWeight: '900',
+                    background: 'linear-gradient(90deg, #60a5fa, #ec4899)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    marginBottom: '16px',
+                  }}>
+                    {proj.title}
+                  </h3>
+                  <p style={{ fontSize: '1.1rem', lineHeight: '1.75', marginBottom: '20px', color: '#cbd5e1' }}>
+                    {proj.desc}
+                  </p>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '24px' }}>
+                    {proj.tech.split(' • ').map((t, idx) => (
+                      <span
+                        key={idx}
+                        style={{
+                          padding: '8px 16px',
+                          background: 'rgba(96,165,250,0.18)',
+                          borderRadius: '999px',
+                          fontSize: '0.95rem',
+                          color: '#93c5fd',
+                          border: '1px solid rgba(96,165,250,0.35)',
+                        }}
+                      >
+                        {t}
+                      </span>
+                    ))}
                   </div>
-                </motion.div>
-              ))}
-            </div>
+                  <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+                    {proj.github && (
+                      <a
+                        href={proj.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '10px',
+                          padding: '12px 24px',
+                          background: 'rgba(96,165,250,0.18)',
+                          borderRadius: '999px',
+                          color: '#60a5fa',
+                          fontWeight: '600',
+                          border: '1px solid rgba(96,165,250,0.4)',
+                          transition: 'all 0.35s',
+                        }}
+                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(96,165,250,0.35)'; e.currentTarget.style.transform = 'translateY(-4px)'; }}
+                        onMouseLeave={e => { e.currentTarget.style.background = 'rgba(96,165,250,0.18)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+                      >
+                        <Github size={18} /> Source Code
+                      </a>
+                    )}
+                    {proj.figma && (
+                      <a
+                        href={proj.figma}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '10px',
+                          padding: '12px 24px',
+                          background: 'rgba(236,72,153,0.18)',
+                          borderRadius: '999px',
+                          color: '#ec4899',
+                          fontWeight: '600',
+                          border: '1px solid rgba(236,72,153,0.4)',
+                          transition: 'all 0.35s',
+                        }}
+                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(236,72,153,0.35)'; e.currentTarget.style.transform = 'translateY(-4px)'; }}
+                        onMouseLeave={e => { e.currentTarget.style.background = 'rgba(236,72,153,0.18)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+                      >
+                        <ExternalLink size={18} /> View Figma
+                      </a>
+                    )}
+                  </div>
+                </div>
+
+                <style jsx>{`
+                  div:hover img { transform: scale(1.12); }
+                  div:hover .proj-overlay { opacity: 1; }
+                `}</style>
+              </motion.div>
+            ))}
           </div>
-        </section>
-      </div>
-    </>
+        </div>
+      </section>
+
+      {/* Animasi shine global */}
+      <style jsx global>{`
+        @keyframes shine {
+          0% { transform: translateX(-100%) rotate(45deg); }
+          100% { transform: translateX(100%) rotate(45deg); }
+        }
+      `}</style>
+    </div>
   );
 };
 
