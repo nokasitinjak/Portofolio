@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Linkedin, Github, Instagram, MessageCircle, Copy } from 'lucide-react';
+import { Mail, Linkedin, Github, Instagram, MessageCircle } from 'lucide-react';
 
 const Contact = () => {
   const [copied, setCopied] = useState(false);
@@ -36,14 +36,13 @@ const Contact = () => {
         borderTop: '1px solid rgba(96,165,250,0.25)',
       }}
     >
-      {/* Background orbs subtle */}
+      {/* Background orbs */}
       <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
         <div style={{ position: 'absolute', top: '10%', left: '12%', width: '450px', height: '450px', background: 'radial-gradient(circle, rgba(96,165,250,0.12) 0%, transparent 60%)', borderRadius: '50%' }} />
         <div style={{ position: 'absolute', bottom: '15%', right: '12%', width: '550px', height: '550px', background: 'radial-gradient(circle, rgba(236,72,153,0.10) 0%, transparent 70%)', borderRadius: '50%' }} />
       </div>
 
       <div style={{ maxWidth: '1400px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
-        {/* JUDUL */}
         <h2
           style={{
             fontSize: 'clamp(3.5rem, 9vw, 6rem)',
@@ -113,8 +112,9 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Contact Buttons */}
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '40px', flexWrap: 'wrap', marginBottom: '120px' }}>
+        {/* Contact Buttons - Sekarang ada Copy + Kirim Email + WA */}
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '32px', flexWrap: 'wrap', marginBottom: '120px' }}>
+          {/* Tombol Copy Email */}
           <button
             onClick={copyEmail}
             style={{
@@ -145,9 +145,39 @@ const Contact = () => {
           >
             <Mail size={32} />
             {copied ? 'Email Copied!' : 'Copy Email'}
-            {copied && <div style={{ position: 'absolute', inset: 0, background: 'rgba(255,255,255,0.2)', animation: 'ripple 0.8s ease-out' }} />}
           </button>
 
+          {/* Tombol Kirim Email (mailto) */}
+          <a
+            href="mailto:nokatrisitinjak@gmail.com?subject=Hello%20Nokatri%20-%20Let's%20Collaborate&body=Halo%20Nokatri,%0A%0ASaya%20tertarik%20untuk%20berkolaborasi%20atau%20membahas%20peluang%20kerja%20/ %20proyek.%0A%0ASilakan%20hubungi%20saya%20kembali.%0A%0ASalam,%0A[Nama%20Anda]"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '16px',
+              padding: '20px 48px',
+              background: 'linear-gradient(135deg, #8b5cf6, #c084fc)',
+              borderRadius: '999px',
+              color: 'white',
+              fontSize: '1.35rem',
+              fontWeight: '700',
+              boxShadow: '0 15px 40px rgba(139,92,246,0.4)',
+              textDecoration: 'none',
+              transition: 'all 0.4s ease',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.transform = 'translateY(-10px) scale(1.05)';
+              e.currentTarget.style.boxShadow = '0 25px 60px rgba(139,92,246,0.6)';
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.transform = 'translateY(0) scale(1)';
+              e.currentTarget.style.boxShadow = '0 15px 40px rgba(139,92,246,0.4)';
+            }}
+          >
+            <Mail size={32} />
+            Kirim Email
+          </a>
+
+          {/* Tombol WhatsApp */}
           <a
             href="https://wa.me/6285370532722"
             target="_blank"
@@ -180,7 +210,7 @@ const Contact = () => {
           </a>
         </div>
 
-        {/* Tools Section */}
+        {/* Tools & Technologies */}
         <div style={{ marginBottom: '140px' }}>
           <h3
             style={{
@@ -238,9 +268,7 @@ const Contact = () => {
                       objectFit: 'contain',
                       filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.3))',
                     }}
-                    onError={e => {
-                      e.target.src = "https://via.placeholder.com/80?text=" + tool.name;
-                    }}
+                    onError={e => e.target.src = "https://via.placeholder.com/80?text=" + tool.name}
                   />
                 </div>
                 <p style={{ color: '#e0e7ff', fontSize: '1.15rem', fontWeight: '600' }}>
@@ -264,7 +292,7 @@ const Contact = () => {
         </p>
       </div>
 
-      {/* Ripple animation untuk copy feedback */}
+      {/* Ripple animation */}
       <style jsx global>{`
         @keyframes ripple {
           0% { transform: scale(0); opacity: 0.8; }
