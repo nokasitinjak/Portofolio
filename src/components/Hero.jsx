@@ -1,199 +1,238 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, Bug, LayoutDashboard, Code, BarChart2, Zap, Users } from 'lucide-react';
+import React from 'react';
+import myPhoto from '../assets/me.jpg';
 
-const Navbar = () => {
-  const [isVisible, setIsVisible] = useState(true);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
+const scrollToContact = () => {
+  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+};
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
-
-      setLastScrollY(currentScrollY);
-    };
-
-    const handleMouseMove = (e) => {
-      if (e.clientY <= 80) {
-        setIsVisible(true);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('mousemove', handleMouseMove);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, [lastScrollY]);
-
-  const features = [
-    { label: 'Zero-Defect QA', href: '#about', icon: Bug, color: '#60a5fa' },
-    { label: 'Intuitive UI/UX', href: '#about', icon: LayoutDashboard, color: '#c084fc' },
-    { label: 'Pixel-Perfect Code', href: '#projects', icon: Code, color: '#ec4899' },
-    { label: 'Business Insight', href: '#about', icon: BarChart2, color: '#fb923c' },
-    { label: 'Fast & Reliable', href: '#projects', icon: Zap, color: '#60a5fa' },
-    { label: 'Team Player', href: '#about', icon: Users, color: '#c084fc' },
-  ];
-
+const Hero = () => {
   return (
-    <>
-      <header
+    <section
+      id="hero"
+      style={{
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '80px 24px',
+        background: '#0a0e1f', // dark navy seperti contoh
+        color: '#e0e7ff',
+        position: 'relative',
+        overflow: 'hidden',
+      }}
+    >
+      {/* Subtle background glow */}
+      <div
         style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 1000,
-          padding: '20px 40px',
-          background: 'rgba(30, 41, 59, 0.75)',
-          backdropFilter: 'blur(20px)',
-          borderBottom: '1px solid rgba(139,92,246,0.25)',
-          transition: 'transform 0.4s ease, opacity 0.4s ease',
-          transform: isVisible ? 'translateY(0)' : 'translateY(-100%)',
-          opacity: isVisible ? 1 : 0,
-          pointerEvents: isVisible ? 'auto' : 'none',
+          position: 'absolute',
+          inset: 0,
+          background: 'radial-gradient(circle at 30% 40%, rgba(59,130,246,0.12) 0%, transparent 60%)',
+          pointerEvents: 'none',
         }}
-      >
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: '1400px', margin: '0 auto' }}>
-          {/* Logo/Nama */}
-          <div style={{ fontSize: '1.9rem', fontWeight: '900' }}>
-            <span style={{
-              background: 'linear-gradient(90deg, #60a5fa, #c084fc, #ec4899)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-            }}>
-              Nokatri
-            </span>
-          </div>
+      />
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'radial-gradient(circle at 70% 60%, rgba(139,92,246,0.10) 0%, transparent 60%)',
+          pointerEvents: 'none',
+        }}
+      />
 
-          {/* Desktop Menu - Fitur unggulan */}
-          <nav style={{ display: 'flex', gap: '32px', alignItems: 'center' }} className="desktop-menu">
-            {features.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '10px',
-                  color: '#e0e7ff',
-                  textDecoration: 'none',
-                  fontWeight: '600',
-                  fontSize: '1.05rem',
-                  padding: '10px 16px',
-                  borderRadius: '12px',
-                  transition: 'all 0.3s ease',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = `rgba(${item.color === '#60a5fa' ? '96,165,250' : item.color === '#c084fc' ? '192,132,252' : item.color === '#ec4899' ? '236,72,153' : '251,146,60'}, 0.15)`;
-                  e.currentTarget.style.color = item.color;
-                  e.currentTarget.style.transform = 'scale(1.05)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'transparent';
-                  e.currentTarget.style.color = '#e0e7ff';
-                  e.currentTarget.style.transform = 'scale(1)';
-                }}
-              >
-                <item.icon size={20} color={item.color} />
-                {item.label}
-              </a>
-            ))}
-          </nav>
-
-          {/* Mobile Hamburger */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            style={{
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
-              color: '#e0e7ff',
-              display: 'none',
-            }}
-            className="mobile-menu-button"
-          >
-            {isMobileMenuOpen ? <X size={32} /> : <Menu size={32} />}
-          </button>
-        </div>
-      </header>
-
-      {/* Mobile Menu Full Screen */}
-      {isMobileMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+      <div style={{ maxWidth: '1400px', width: '100%', zIndex: 2 }}>
+        <div
           style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: 'rgba(15,23,42,0.95)',
-            backdropFilter: 'blur(20px)',
-            zIndex: 999,
             display: 'flex',
-            flexDirection: 'column',
+            flexWrap: 'wrap',
             justifyContent: 'center',
             alignItems: 'center',
-            gap: '40px',
+            gap: '80px 120px',
           }}
         >
-          {features.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              onClick={() => setIsMobileMenuOpen(false)}
+          {/* FOTO - Lingkaran dengan glow biru subtle */}
+          <div style={{ position: 'relative' }}>
+            <div
               style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '16px',
-                color: '#e0e7ff',
-                textDecoration: 'none',
-                fontSize: '2.2rem',
-                fontWeight: '700',
-                padding: '16px 32px',
-                borderRadius: '16px',
-                transition: 'all 0.3s ease',
+                position: 'absolute',
+                inset: '-30px',
+                borderRadius: '50%',
+                background: 'radial-gradient(circle, rgba(59,130,246,0.4) 0%, transparent 70%)',
+                filter: 'blur(25px)',
+                opacity: 0.7,
+                animation: 'pulseGlow 6s ease-in-out infinite',
               }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = item.color;
-                e.currentTarget.style.background = `rgba(${item.color === '#60a5fa' ? '96,165,250' : item.color === '#c084fc' ? '192,132,252' : item.color === '#ec4899' ? '236,72,153' : '251,146,60'}, 0.15)`;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = '#e0e7ff';
-                e.currentTarget.style.background = 'transparent';
+            />
+            <div
+              style={{
+                width: '320px',
+                height: '320px',
+                borderRadius: '50%',
+                overflow: 'hidden',
+                border: '6px solid rgba(59,130,246,0.5)',
+                boxShadow: '0 0 40px rgba(59,130,246,0.3)',
               }}
             >
-              <item.icon size={36} color={item.color} />
-              {item.label}
-            </a>
-          ))}
-        </motion.div>
-      )}
+              <img
+                src={myPhoto}
+                alt="Nokatri Sitinjak"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                }}
+              />
+            </div>
+          </div>
 
-      {/* CSS Responsif */}
-      <style jsx>{`
-        @media (max-width: 768px) {
-          .desktop-menu {
-            display: none !important;
-          }
-          .mobile-menu-button {
-            display: block !important;
-          }
+          {/* Kanan: Teks & Badge */}
+          <div style={{ maxWidth: '620px' }}>
+            <p
+              style={{
+                fontSize: '1.5rem',
+                color: '#60a5fa',
+                fontWeight: '600',
+                letterSpacing: '3px',
+                marginBottom: '12px',
+                textTransform: 'uppercase',
+              }}
+            >
+              HEY THERE, I'M
+            </p>
+
+            <h1
+              style={{
+                fontSize: 'clamp(3.5rem, 7vw, 5.2rem)',
+                fontWeight: '900',
+                lineHeight: '1.05',
+                marginBottom: '32px',
+                color: '#ffffff',
+              }}
+            >
+              Nokatri <br /> Sitinjak
+            </h1>
+
+            {/* Badges */}
+            <div
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: '12px',
+                marginBottom: '40px',
+              }}
+            >
+              {[
+                { text: 'Quality Assurance Engineer', color: '#60a5fa', border: '#60a5fa' },
+                { text: 'UI/UX Enthusiast', color: '#c084fc', border: '#c084fc' },
+                { text: 'Front-End Developer', color: '#ec4899', border: '#ec4899' },
+                { text: 'Business Analyst', color: '#fb923c', border: '#fb923c' },
+              ].map((role, i) => (
+                <span
+                  key={i}
+                  style={{
+                    padding: '10px 24px',
+                    fontSize: '1rem',
+                    fontWeight: '600',
+                    borderRadius: '999px',
+                    background: 'transparent',
+                    color: role.color,
+                    border: `2px solid ${role.border}`,
+                    boxShadow: `0 0 12px rgba(${role.color === '#60a5fa' ? '96,165,250' : role.color === '#c084fc' ? '192,132,252' : role.color === '#ec4899' ? '236,72,153' : '251,146,60'}, 0.4)`,
+                    transition: 'all 0.3s',
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.background = `rgba(${role.color === '#60a5fa' ? '96,165,250' : role.color === '#c084fc' ? '192,132,252' : role.color === '#ec4899' ? '236,72,153' : '251,146,60'}, 0.12)`;
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.background = 'transparent';
+                  }}
+                >
+                  {role.text}
+                </span>
+              ))}
+            </div>
+
+            {/* Deskripsi di dalam kotak */}
+            <div
+              style={{
+                padding: '28px 36px',
+                borderRadius: '16px',
+                background: 'rgba(30, 41, 59, 0.6)',
+                backdropFilter: 'blur(12px)',
+                border: '1px solid rgba(96,165,250,0.25)',
+                marginBottom: '48px',
+                fontSize: '1.25rem',
+                lineHeight: '1.7',
+                color: '#cbd5e1',
+              }}
+            >
+              Delivering <strong>high-quality</strong>, <strong>user-centered</strong> digital products — from flawless functionality to intuitive and beautiful experiences.
+            </div>
+
+            {/* Tombol */}
+            <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
+              <a
+                href="/CVNokatri.pdf"
+                download
+                style={{
+                  padding: '16px 40px',
+                  background: '#3b82f6',
+                  color: 'white',
+                  fontSize: '1.2rem',
+                  fontWeight: '700',
+                  borderRadius: '12px',
+                  textDecoration: 'none',
+                  boxShadow: '0 10px 30px rgba(59,130,246,0.4)',
+                  transition: 'all 0.3s',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.transform = 'translateY(-4px)';
+                  e.currentTarget.style.boxShadow = '0 16px 40px rgba(59,130,246,0.6)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 10px 30px rgba(59,130,246,0.4)';
+                }}
+              >
+                Download CV
+              </a>
+
+              <button
+                onClick={scrollToContact}
+                style={{
+                  padding: '16px 40px',
+                  background: 'transparent',
+                  color: '#60a5fa',
+                  fontSize: '1.2rem',
+                  fontWeight: '700',
+                  border: '2px solid #60a5fa',
+                  borderRadius: '12px',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = 'rgba(96,165,250,0.15)';
+                  e.currentTarget.style.transform = 'translateY(-4px)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = 'transparent';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                }}
+              >
+                Hire Me
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style jsx global>{`
+        @keyframes pulseGlow {
+          0%, 100% { opacity: 0.6; transform: scale(1); }
+          50%      { opacity: 0.9; transform: scale(1.08); }
         }
       `}</style>
-    </>
+    </section>
   );
 };
 
-export default Navbar;
+export default Hero;
