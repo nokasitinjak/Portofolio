@@ -1,110 +1,236 @@
-import React from "react";
-import myPhoto from "../assets/me.jpg";
+import React from 'react';
+import myPhoto from '../assets/me.jpg';
 
 const scrollToContact = () => {
-  document.getElementById("contact")?.scrollIntoView({
-    behavior: "smooth",
-  });
+  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
 };
 
 const Hero = () => {
-  const roles = [
-    {
-      text: "Quality Assurance Engineer",
-      color: "border-blue-400 text-blue-400",
-    },
-    {
-      text: "UI/UX Enthusiast",
-      color: "border-purple-400 text-purple-400",
-    },
-    {
-      text: "Front-End Developer",
-      color: "border-pink-400 text-pink-400",
-    },
-    {
-      text: "Business Analyst",
-      color: "border-orange-400 text-orange-400",
-    },
-  ];
-
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0a0e1f] px-6 py-20"
+      style={{
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '80px 24px',
+        background: '#0a0e1f', // dark navy seperti contoh
+        color: '#e0e7ff',
+        position: 'relative',
+        overflow: 'hidden',
+      }}
     >
-      {/* Background Glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(59,130,246,.12),transparent_60%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(139,92,246,.10),transparent_60%)]" />
+      {/* Subtle background glow */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'radial-gradient(circle at 30% 40%, rgba(59,130,246,0.12) 0%, transparent 60%)',
+          pointerEvents: 'none',
+        }}
+      />
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'radial-gradient(circle at 70% 60%, rgba(139,92,246,0.10) 0%, transparent 60%)',
+          pointerEvents: 'none',
+        }}
+      />
 
-      <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center gap-12 lg:flex-row lg:gap-24">
-
-        {/* FOTO */}
-        <div className="relative flex justify-center">
-          <div className="absolute -inset-6 rounded-full bg-blue-500/30 blur-3xl animate-pulse"></div>
-
-          <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-blue-400 shadow-[0_0_40px_rgba(59,130,246,.4)]">
-            <img
-              src={myPhoto}
-              alt="Nokatri Sitinjak"
-              className="w-full h-full object-cover"
+      <div style={{ maxWidth: '1400px', width: '100%', zIndex: 2 }}>
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '80px 120px',
+          }}
+        >
+          {/* FOTO - Lingkaran dengan glow biru subtle */}
+          <div style={{ position: 'relative' }}>
+            <div
+              style={{
+                position: 'absolute',
+                inset: '-30px',
+                borderRadius: '50%',
+                background: 'radial-gradient(circle, rgba(59,130,246,0.4) 0%, transparent 70%)',
+                filter: 'blur(25px)',
+                opacity: 0.7,
+                animation: 'pulseGlow 6s ease-in-out infinite',
+              }}
             />
-          </div>
-        </div>
-
-        {/* TEXT */}
-        <div className="max-w-2xl text-center lg:text-left">
-
-          <p className="text-blue-400 uppercase tracking-[4px] font-semibold text-sm md:text-lg">
-            Hey There, I'm
-          </p>
-
-          <h1 className="mt-3 text-5xl sm:text-6xl lg:text-7xl font-black leading-tight text-white">
-            Nokatri <br /> Sitinjak
-          </h1>
-
-          {/* BADGES */}
-          <div className="mt-8 flex flex-wrap justify-center lg:justify-start gap-3">
-            {roles.map((role) => (
-              <span
-                key={role.text}
-                className={`px-5 py-2 rounded-full border-2 font-semibold ${role.color} transition hover:scale-105`}
-              >
-                {role.text}
-              </span>
-            ))}
+            <div
+              style={{
+                width: '320px',
+                height: '320px',
+                borderRadius: '50%',
+                overflow: 'hidden',
+                border: '6px solid rgba(59,130,246,0.5)',
+                boxShadow: '0 0 40px rgba(59,130,246,0.3)',
+              }}
+            >
+              <img
+                src={myPhoto}
+                alt="Nokatri Sitinjak"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                }}
+              />
+            </div>
           </div>
 
-          {/* DESCRIPTION */}
-          <div className="mt-8 rounded-2xl border border-blue-400/20 bg-slate-900/60 backdrop-blur-md p-6 md:p-8">
-            <p className="text-slate-300 leading-8 text-base md:text-lg">
-              Delivering <strong>high-quality</strong>,
-              <strong> user-centered</strong> digital products —
-              from flawless functionality to intuitive and beautiful
-              experiences.
+          {/* Kanan: Teks & Badge */}
+          <div style={{ maxWidth: '620px' }}>
+            <p
+              style={{
+                fontSize: '1.5rem',
+                color: '#60a5fa',
+                fontWeight: '600',
+                letterSpacing: '3px',
+                marginBottom: '12px',
+                textTransform: 'uppercase',
+              }}
+            >
+              HEY THERE, I'M
             </p>
-          </div>
 
-          {/* BUTTON */}
-          <div className="mt-10 flex flex-col sm:flex-row justify-center lg:justify-start gap-5">
-
-            <a
-              href="/CVNokatri.pdf"
-              download
-              className="px-8 py-4 rounded-xl bg-blue-500 text-white font-bold shadow-lg hover:bg-blue-600 transition"
+            <h1
+              style={{
+                fontSize: 'clamp(3.5rem, 7vw, 5.2rem)',
+                fontWeight: '900',
+                lineHeight: '1.05',
+                marginBottom: '32px',
+                color: '#ffffff',
+              }}
             >
-              Download CV
-            </a>
+              Nokatri <br /> Sitinjak
+            </h1>
 
-            <button
-              onClick={scrollToContact}
-              className="px-8 py-4 rounded-xl border-2 border-blue-400 text-blue-400 font-bold hover:bg-blue-400/10 transition"
+            {/* Badges */}
+            <div
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: '12px',
+                marginBottom: '40px',
+              }}
             >
-              Hire Me
-            </button>
+              {[
+                { text: 'Quality Assurance Engineer', color: '#60a5fa', border: '#60a5fa' },
+                { text: 'UI/UX Enthusiast', color: '#c084fc', border: '#c084fc' },
+                { text: 'Front-End Developer', color: '#ec4899', border: '#ec4899' },
+                { text: 'Business Analyst', color: '#fb923c', border: '#fb923c' },
+              ].map((role, i) => (
+                <span
+                  key={i}
+                  style={{
+                    padding: '10px 24px',
+                    fontSize: '1rem',
+                    fontWeight: '600',
+                    borderRadius: '999px',
+                    background: 'transparent',
+                    color: role.color,
+                    border: `2px solid ${role.border}`,
+                    boxShadow: `0 0 12px rgba(${role.color === '#60a5fa' ? '96,165,250' : role.color === '#c084fc' ? '192,132,252' : role.color === '#ec4899' ? '236,72,153' : '251,146,60'}, 0.4)`,
+                    transition: 'all 0.3s',
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.background = `rgba(${role.color === '#60a5fa' ? '96,165,250' : role.color === '#c084fc' ? '192,132,252' : role.color === '#ec4899' ? '236,72,153' : '251,146,60'}, 0.12)`;
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.background = 'transparent';
+                  }}
+                >
+                  {role.text}
+                </span>
+              ))}
+            </div>
 
+            {/* Deskripsi di dalam kotak */}
+            <div
+              style={{
+                padding: '28px 36px',
+                borderRadius: '16px',
+                background: 'rgba(30, 41, 59, 0.6)',
+                backdropFilter: 'blur(12px)',
+                border: '1px solid rgba(96,165,250,0.25)',
+                marginBottom: '48px',
+                fontSize: '1.25rem',
+                lineHeight: '1.7',
+                color: '#cbd5e1',
+              }}
+            >
+              Delivering <strong>high-quality</strong>, <strong>user-centered</strong> digital products — from flawless functionality to intuitive and beautiful experiences.
+            </div>
+
+            {/* Tombol */}
+            <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
+              <a
+                href="/CVNokatri.pdf"
+                download
+                style={{
+                  padding: '16px 40px',
+                  background: '#3b82f6',
+                  color: 'white',
+                  fontSize: '1.2rem',
+                  fontWeight: '700',
+                  borderRadius: '12px',
+                  textDecoration: 'none',
+                  boxShadow: '0 10px 30px rgba(59,130,246,0.4)',
+                  transition: 'all 0.3s',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.transform = 'translateY(-4px)';
+                  e.currentTarget.style.boxShadow = '0 16px 40px rgba(59,130,246,0.6)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 10px 30px rgba(59,130,246,0.4)';
+                }}
+              >
+                Download CV
+              </a>
+
+              <button
+                onClick={scrollToContact}
+                style={{
+                  padding: '16px 40px',
+                  background: 'transparent',
+                  color: '#60a5fa',
+                  fontSize: '1.2rem',
+                  fontWeight: '700',
+                  border: '2px solid #60a5fa',
+                  borderRadius: '12px',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = 'rgba(96,165,250,0.15)';
+                  e.currentTarget.style.transform = 'translateY(-4px)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = 'transparent';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                }}
+              >
+                Hire Me
+              </button>
+            </div>
           </div>
         </div>
       </div>
+
+      <style jsx global>{`
+        @keyframes pulseGlow {
+          0%, 100% { opacity: 0.6; transform: scale(1); }
+          50%      { opacity: 0.9; transform: scale(1.08); }
+        }
+      `}</style>
     </section>
   );
 };
